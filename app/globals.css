@@ -2,25 +2,197 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #333333;
+  --egg-blue: #54c2dc;
+  --egg-yellow: #fed649;
+  --egg-red: #ec7072;
+  --egg-green: #52bc9a;
+  --egg-orange: #f6a04d;
+  --egg-dark: #333333;
+  --egg-gray: #ababab;
+  --egg-gray-light: #d7d7d7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-egg-blue: var(--egg-blue);
+  --color-egg-yellow: var(--egg-yellow);
+  --color-egg-red: var(--egg-red);
+  --color-egg-green: var(--egg-green);
+  --color-egg-orange: var(--egg-orange);
+  --color-egg-dark: var(--egg-dark);
+  --color-egg-gray: var(--egg-gray);
+  --color-egg-gray-light: var(--egg-gray-light);
+  --font-sans: "Noto Sans JP", "Inter", sans-serif;
+
+  --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slide-in-left: slideInLeft 0.6s ease-out forwards;
+  --animate-slide-in-right: slideInRight 0.6s ease-out forwards;
+  --animate-infinite-scroll: infiniteScroll 30s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-soft: pulseSoft 3s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes infiniteScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Noto Sans JP", "Inter", sans-serif;
+  overflow-x: hidden;
 }
+
+/* Scroll-triggered animation base */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+
+/* Infinite scroll pause on hover */
+.infinite-scroll-track:hover {
+  animation-play-state: paused;
+}
+
+/* ===== ブログ本文（microCMS リッチエディタHTML）のスタイル ===== */
+.blog-content {
+  color: #333;
+  font-size: 16px;
+  line-height: 2;
+  word-break: break-word;
+}
+.blog-content > *:first-child { margin-top: 0; }
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  font-weight: 700;
+  line-height: 1.5;
+  color: #333;
+}
+.blog-content h2 {
+  font-size: 26px;
+  margin: 48px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--egg-blue);
+}
+.blog-content h3 {
+  font-size: 21px;
+  margin: 36px 0 16px;
+  padding-left: 14px;
+  border-left: 5px solid var(--egg-blue);
+}
+.blog-content h4 { font-size: 18px; margin: 28px 0 12px; }
+.blog-content p { margin: 20px 0; }
+.blog-content a { color: var(--egg-blue); text-decoration: underline; }
+.blog-content a:hover { opacity: 0.8; }
+.blog-content ul,
+.blog-content ol { margin: 20px 0; padding-left: 1.6em; }
+.blog-content ul { list-style: disc; }
+.blog-content ol { list-style: decimal; }
+.blog-content li { margin: 8px 0; }
+.blog-content img { border-radius: 12px; height: auto; max-width: 100%; }
+.blog-content figure { margin: 28px 0; }
+.blog-content figure figcaption { margin-top: 8px; font-size: 13px; color: var(--egg-gray); text-align: center; }
+.blog-content blockquote {
+  margin: 24px 0;
+  padding: 16px 24px;
+  border-left: 4px solid var(--egg-gray-light);
+  background: #fafafa;
+  border-radius: 0 12px 12px 0;
+  color: #555;
+}
+.blog-content code {
+  background: #f1f1f1;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+}
+.blog-content pre {
+  margin: 24px 0;
+  padding: 20px;
+  background: #2d2d2d;
+  color: #f8f8f2;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+.blog-content pre code { background: transparent; padding: 0; color: inherit; }
+.blog-content table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+.blog-content th,
+.blog-content td { border: 1px solid var(--egg-gray-light); padding: 10px 14px; text-align: left; }
+.blog-content th { background: #fafafa; font-weight: 700; }
