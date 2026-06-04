@@ -10,9 +10,9 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-[45px] py-[15px]">
-        {/* デスクトップ */}
-        <div className="hidden lg:flex items-center h-[76px] bg-white rounded-[100px] shadow-[0px_0px_16.8px_0px_rgba(0,0,0,0.1)] px-[46px]">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-[15px] sm:px-[45px]">
+        {/* デスクトップ（フルナビ表示には ~1100px 必要なため xl 以上で表示） */}
+        <div className="hidden xl:flex items-center h-[76px] bg-white rounded-[100px] shadow-[0px_0px_16.8px_0px_rgba(0,0,0,0.1)] px-[46px]">
           <Link href="/" className="flex-shrink-0">
             <Image
               src="/images/logo/hero-egg-logo.png"
@@ -68,8 +68,8 @@ export function Header() {
           </div>
         </div>
 
-        {/* モバイル */}
-        <div className="lg:hidden flex items-center justify-between h-[56px] bg-white rounded-[100px] shadow-[0px_0px_16.8px_0px_rgba(0,0,0,0.1)] px-5">
+        {/* モバイル（タブレット含む xl 未満） */}
+        <div className="xl:hidden flex items-center justify-between h-[56px] bg-white rounded-[100px] shadow-[0px_0px_16.8px_0px_rgba(0,0,0,0.1)] px-5">
           <Link href="/">
             <Image src="/images/logo/hero-egg-logo.png" alt="Hero Egg" width={110} height={32} className="h-[32px] w-auto" priority />
           </Link>
@@ -102,7 +102,7 @@ export function Header() {
 
       {/* ドロワーパネル — ヘッダーの下から開始 */}
       <div
-        className={`fixed top-[106px] lg:top-[106px] right-0 z-40 h-[calc(100vh-106px)] w-[420px] max-w-[85vw] bg-white shadow-[-8px_0_30px_rgba(0,0,0,0.15)] transition-transform duration-300 rounded-tl-[30px] ${
+        className={`fixed top-[86px] xl:top-[106px] right-0 z-40 h-[calc(100vh-86px)] xl:h-[calc(100vh-106px)] w-[420px] max-w-[85vw] bg-white shadow-[-8px_0_30px_rgba(0,0,0,0.15)] transition-transform duration-300 rounded-tl-[30px] ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

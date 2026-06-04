@@ -218,16 +218,11 @@ export function FirstViewSection() {
           </div>
         </div>
 
-        {/* モバイル版ターンテーブル */}
-        <div className="relative overflow-hidden mb-4" style={{ height: "50vw" }}>
+        {/* モバイル版ターンテーブル — 全体を中央に表示（見切れ防止） */}
+        <div className="px-6 mb-2 flex justify-center">
           <Turntable
             rotation={currentSlide * -72}
-            className="absolute"
-            style={{
-              left: "-30%",
-              top: "-20%",
-              width: "160%",
-            }}
+            className="w-full max-w-[320px]"
           />
         </div>
 

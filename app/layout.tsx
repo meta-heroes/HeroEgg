@@ -16,13 +16,13 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 /**
- * スマホでもPCと全く同じ表示にするための固定ビューポート（本文をPC表示のまま保つ）。
- * width をデスクトップのデザイン幅(1440px)に固定すると、スマホはその幅で描画して
- * 画面サイズに合わせ縮小表示する。デスクトップは width 指定を無視するためPC表示は不変。
+ * 端末幅に追従する通常のレスポンシブビューポート。
+ * （以前はデザイン幅1440px固定でPC表示を縮小していたが、レスポンシブ対応へ移行中。
+ * ヘッダー／フッターはモバイルレイアウトに対応済み。他セクションは順次対応予定。）
  */
 export const viewport: Viewport = {
-  width: "1440",
-  initialScale: undefined,
+  width: "device-width",
+  initialScale: 1,
 };
 
 export const metadata: Metadata = {

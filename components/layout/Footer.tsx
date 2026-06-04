@@ -6,14 +6,14 @@ export function Footer() {
   return (
     <footer className="bg-white">
       <div className="bg-egg-yellow">
-        <div className="max-w-[1440px] mx-auto px-6 py-16">
+        <div className="max-w-[1440px] mx-auto px-6 py-12 md:py-16">
           {/* Nav links — Header と同じ MAIN_NAV を参照（4列×2段） */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-6 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-12 gap-y-5 md:gap-y-6 mb-2 md:mb-12">
             {MAIN_NAV.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="font-bold text-[#333] text-[20px] hover:opacity-70 transition-opacity"
+                className="font-bold text-[#333] text-[17px] md:text-[20px] hover:opacity-70 transition-opacity"
               >
                 {item.label}
               </Link>
@@ -24,15 +24,15 @@ export function Footer() {
 
       {/* Logo + address + social area */}
       <div className="bg-white">
-        <div className="max-w-[1440px] mx-auto px-6 py-12">
-          <div className="flex flex-col md:flex-row gap-12 items-start">
+        <div className="max-w-[1440px] mx-auto px-6 py-10 md:py-12">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
             <div className="flex-shrink-0">
               <Image
                 src="/images/logo/hero-egg-logo.png"
                 alt="Hero Egg"
                 width={238}
                 height={69}
-                className="h-[69px] w-auto mb-6"
+                className="h-[56px] md:h-[69px] w-auto mb-5 md:mb-6"
               />
               <div className="flex items-center gap-3">
                 <a href="#" className="block w-[40px] h-[40px] rounded-full overflow-hidden hover:opacity-80 transition-opacity">
@@ -50,7 +50,7 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="text-[20px] text-[#333] leading-[117%]">
+            <div className="text-[16px] md:text-[20px] text-[#333] leading-[150%] md:leading-[117%]">
               <p className="font-bold mb-2">
                 {FOOTER_NAV.address.name}
               </p>
@@ -73,7 +73,7 @@ export function Footer() {
               className="h-[29px] w-auto"
             />
           </div>
-          <div className="flex flex-wrap items-center gap-6 text-[14px] font-bold text-[#333]">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 md:gap-6 text-[13px] md:text-[14px] font-bold text-[#333]">
             {FOOTER_NAV.legal.map((item) => (
               <a
                 key={item.label}
@@ -84,7 +84,7 @@ export function Footer() {
               </a>
             ))}
           </div>
-          <p className="text-[14px] text-[#333] text-right">
+          <p className="text-[13px] md:text-[14px] text-[#333] text-center md:text-right">
             {FOOTER_NAV.copyright}
           </p>
         </div>
