@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { PageHeader } from "@/components/sections/PageHeader";
 
 export const metadata: Metadata = {
   title: "資料請求 | Hero Egg",
@@ -33,17 +34,12 @@ export default function DocumentRequestPage() {
         <BackgroundEggs />
 
         {/* ===== ページタイトル ===== */}
-        <section className="animate-fade-in-up relative z-10 pt-[200px] pb-[60px] text-center">
-          <div className="mb-2 flex items-center justify-center gap-2">
-            <Image src="/images/logo/hero-egg-logomark.png" alt="" width={59} height={59} className="rounded-full" />
-            <span className="text-[24px] tracking-[0.1em] text-[#333]">Document</span>
-          </div>
-          <h1 className="text-[44px] font-bold text-[#333] sm:text-[64px]">資料請求</h1>
+        <PageHeader eyebrow="Document" title="資料請求">
           <span className="mt-[20px] inline-flex items-center gap-[8px] rounded-full bg-egg-yellow px-[20px] py-[8px] text-[15px] font-bold text-[#333]">
             <span className="h-[8px] w-[8px] rounded-full bg-[#333]" />
             ただいま準備中
           </span>
-        </section>
+        </PageHeader>
 
         {/* ===== メイン白カード ===== */}
         <div className="relative z-10 mx-auto max-w-[1342px] rounded-[39px] bg-white px-[24px] py-[60px] shadow-[0px_0px_61.6px_0px_rgba(0,0,0,0.25)] sm:px-[60px] lg:px-[120px] lg:py-[80px]">

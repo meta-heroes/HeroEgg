@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ServiceCommunitySection } from "@/components/sections/ServiceCommunitySection";
+import { PageHeader } from "@/components/sections/PageHeader";
 
 export const metadata: Metadata = {
   title: "サービス・コミュニティー | Hero Egg",
@@ -50,21 +51,14 @@ export default function ServiceCommunityPage() {
         ))}
 
         {/* ページタイトル（カード外） */}
-        <section className="relative z-10 pb-[60px] pt-[200px] text-center">
-          <div className="mb-2 flex items-center justify-center gap-2">
-            <Image
-              src="/images/logo/hero-egg-logomark.png"
-              alt=""
-              width={40}
-              height={40}
-              className="rounded-full"
-            />
-            <span className="text-[24px] text-[#333]">Service &amp; Community</span>
-          </div>
-          <h1 className="text-[40px] font-bold tracking-[0.08em] text-[#333] md:text-[64px]">
-            サービス・コミュニティー
-          </h1>
-        </section>
+        <PageHeader
+          eyebrow="Service & Community"
+          title={
+            <>
+              サービス・<br className="sm:hidden" />コミュニティー
+            </>
+          }
+        />
 
         {/* メインコンテンツ（インタラクティブな白カード） */}
         <div className="relative z-10 px-4 md:px-8">

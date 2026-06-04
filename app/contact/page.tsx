@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { PageHeader } from "@/components/sections/PageHeader";
 import { LINE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -27,19 +28,7 @@ export default function ContactPage() {
         <BackgroundEggs />
 
         {/* ===== ページタイトル ===== */}
-        <section className="animate-fade-in-up relative z-10 pt-[200px] pb-[60px] text-center">
-          <div className="mb-2 flex items-center justify-center gap-2">
-            <Image
-              src="/images/logo/hero-egg-logomark.png"
-              alt=""
-              width={59}
-              height={59}
-              className="rounded-full"
-            />
-            <span className="text-[24px] tracking-[0.1em] text-[#333]">Contact</span>
-          </div>
-          <h1 className="text-[44px] font-bold text-[#333] sm:text-[64px]">お問い合わせ</h1>
-        </section>
+        <PageHeader eyebrow="Contact" title="お問い合わせ" />
 
         {/* ===== メイン白カード ===== */}
         <div className="relative z-10 mx-auto max-w-[1342px] rounded-[39px] bg-white px-[24px] py-[60px] shadow-[0px_0px_61.6px_0px_rgba(0,0,0,0.25)] sm:px-[60px] lg:px-[120px] lg:py-[80px]">

@@ -7,6 +7,7 @@ import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
 import { FacilityGallery } from "@/components/sections/FacilityGallery";
 import { FacilityNav } from "@/components/sections/FacilityNav";
+import { PageHeader } from "@/components/sections/PageHeader";
 import { STORE_SECTIONS, type Store } from "@/lib/constants";
 
 const ALL_STORES: Store[] = STORE_SECTIONS.flatMap((section) => section.stores);
@@ -177,13 +178,7 @@ export default async function FacilityDetailPage({
         ))}
 
         {/* ページタイトル（カード外） */}
-        <section className="relative z-10 pb-[60px] pt-[200px] text-center">
-          <div className="mb-2 flex items-center justify-center gap-2">
-            <Image src="/images/logo/hero-egg-logomark.png" alt="" width={40} height={40} className="rounded-full" />
-            <span className="text-[24px] text-[#333]">Store</span>
-          </div>
-          <h1 className="text-[40px] font-bold tracking-[0.08em] text-[#333] md:text-[64px]">施設について</h1>
-        </section>
+        <PageHeader eyebrow="Store" title="施設について" />
 
         {/* メイン白カード */}
         <div className="relative z-10 mx-auto mb-[80px] w-full max-w-[1342px] rounded-[39px] bg-white px-6 py-[60px] shadow-[0px_0px_61.6px_0px_rgba(0,0,0,0.25)] md:px-[80px] xl:px-[155px] xl:py-[70px]">

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { EventBody } from "@/components/sections/EventBody";
+import { PageHeader } from "@/components/sections/PageHeader";
 
 export const metadata: Metadata = {
   title: "イベント | Hero Egg",
@@ -55,19 +56,7 @@ export default function EventsPage() {
         </div>
 
         {/* ===== ページタイトル（カード外） ===== */}
-        <section className="relative z-10 pt-[200px] pb-[60px] text-center">
-          <div className="flex items-center gap-2 justify-center mb-2">
-            <Image
-              src="/images/logo/hero-egg-logomark.png"
-              alt=""
-              width={59}
-              height={59}
-              className="rounded-full"
-            />
-            <span className="text-[24px] text-[#333]">Event</span>
-          </div>
-          <h1 className="text-[44px] font-bold text-[#333]">イベント</h1>
-        </section>
+        <PageHeader eyebrow="Event" title="イベント" />
 
         {/* ===== メインコンテンツ（白カード） ===== */}
         <EventBody />

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CompanyOverview } from "@/components/sections/CompanyOverview";
+import { PageHeader } from "@/components/sections/PageHeader";
 
 export const metadata: Metadata = {
   title: "企業情報 | Hero Egg",
@@ -28,13 +29,7 @@ export default function CompanyPage() {
         <BackgroundEggs />
 
         {/* ===== ページタイトル ===== */}
-        <section className="animate-fade-in-up relative z-10 pt-[200px] pb-[60px] text-center">
-          <div className="mb-2 flex items-center justify-center gap-2">
-            <Image src="/images/logo/hero-egg-logomark.png" alt="" width={59} height={59} className="rounded-full" />
-            <span className="text-[24px] text-[#333]">Company</span>
-          </div>
-          <h1 className="text-[44px] font-bold text-[#333] sm:text-[64px]">企業情報</h1>
-        </section>
+        <PageHeader eyebrow="Company" title="企業情報" />
 
         {/* ===== メイン白カード ===== */}
         <div className="relative z-10 mx-auto max-w-[1342px] rounded-[39px] bg-white px-[24px] py-[60px] shadow-[0px_0px_61.6px_0px_rgba(0,0,0,0.25)] sm:px-[60px] lg:px-[155px] lg:py-[80px]">

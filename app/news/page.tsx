@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { BlogCard } from "@/components/sections/BlogCard";
 import { NewsFilters } from "@/components/sections/NewsFilters";
+import { PageHeader } from "@/components/sections/PageHeader";
 import { getBlogs, getCategories, BLOG_PER_PAGE } from "@/lib/microcms";
 
 export const metadata: Metadata = {
@@ -79,13 +80,7 @@ export default async function NewsPage({
         </div>
 
         {/* ===== ページタイトル ===== */}
-        <section className="animate-fade-in-up relative z-10 pt-[200px] pb-[60px] text-center">
-          <div className="mb-2 flex items-center justify-center gap-2">
-            <Image src="/images/logo/hero-egg-logomark.png" alt="" width={59} height={59} className="rounded-full" />
-            <span className="text-[24px] text-[#333]">News</span>
-          </div>
-          <h1 className="text-[44px] font-bold text-[#333] sm:text-[64px]">お知らせ</h1>
-        </section>
+        <PageHeader eyebrow="News" title="お知らせ" />
 
         {/* ===== メイン白カード ===== */}
         <div className="relative z-10 mx-auto max-w-[1342px] rounded-[39px] bg-white px-[24px] py-[60px] shadow-[0px_0px_61.6px_0px_rgba(0,0,0,0.25)] sm:px-[60px] lg:px-[100px] lg:py-[80px]">

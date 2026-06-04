@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { PageHeader } from "@/components/sections/PageHeader";
 import Image from "next/image";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
@@ -22,23 +23,7 @@ export default function AboutPage() {
         <BackgroundEggs />
 
         {/* ===== ページタイトル（カード外・中央） ===== */}
-        <section className="relative z-10 pt-[120px] pb-[40px] text-center sm:pt-[200px] sm:pb-[60px]">
-          <Reveal>
-            <div className="mb-[6px] flex items-center justify-center gap-[10px]">
-              <Image
-                src="/images/logo/hero-egg-logomark.png"
-                alt=""
-                width={59}
-                height={59}
-                className="h-[40px] w-[40px] rounded-full sm:h-[59px] sm:w-[59px]"
-              />
-              <span className="text-[18px] tracking-[0.1em] text-[#333] sm:text-[24px]">About us</span>
-            </div>
-            <h1 className="text-[34px] font-bold leading-tight text-[#333] sm:text-[48px] lg:text-[64px]">
-              Hero Eggについて
-            </h1>
-          </Reveal>
-        </section>
+        <PageHeader eyebrow="About us" title="Hero Eggについて" />
 
         {/* ===== メイン白カード ===== */}
         <div className="relative z-10 mx-4 mb-[80px] rounded-[24px] bg-white px-5 py-[44px] shadow-[0px_0px_61.6px_0px_rgba(0,0,0,0.25)] sm:mx-6 sm:rounded-[39px] sm:px-10 sm:py-[64px] lg:mx-auto lg:mb-[120px] lg:max-w-[1342px] lg:px-[100px] lg:py-[80px]">
