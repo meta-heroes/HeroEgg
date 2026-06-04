@@ -6,7 +6,6 @@ import { ProgramCarousel } from "@/components/ui/ProgramCarousel";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import {
   EVENT_PROGRAMS,
-  EVENT_PROGRAM_DESC,
   EVENT_OTHER_PROGRAMS,
   EVENT_TYPES,
   EVENT_FORMATS,
@@ -146,7 +145,6 @@ export function EventBody() {
               tagText={p.tagText}
               side={p.side}
               cards={p.cards}
-              desc={EVENT_PROGRAM_DESC}
             />
           </div>
         ))}
@@ -180,9 +178,6 @@ export function EventBody() {
                       {label}
                     </span>
                   </div>
-                  <p className="mt-[16px] px-[19px] text-[15px] leading-[2] tracking-[1.5px] text-[#333]">
-                    {EVENT_PROGRAM_DESC}
-                  </p>
                 </div>
               </article>
             ))}

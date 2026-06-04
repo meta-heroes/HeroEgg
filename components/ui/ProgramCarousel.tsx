@@ -9,7 +9,6 @@ type ProgramCarouselProps = {
   tagText: string;
   side: "left" | "right";
   cards: readonly string[];
-  desc: string;
 };
 
 export function ProgramCarousel({
@@ -18,7 +17,6 @@ export function ProgramCarousel({
   tagText,
   side,
   cards,
-  desc,
 }: ProgramCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: false });
@@ -118,9 +116,6 @@ export function ProgramCarousel({
                   {label}
                 </span>
               </div>
-              <p className="mt-[16px] px-[19px] text-[15px] leading-[2] tracking-[1.5px] text-[#333]">
-                {desc}
-              </p>
             </div>
           </article>
         ))}
