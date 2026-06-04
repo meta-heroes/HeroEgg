@@ -80,22 +80,22 @@ export function EventBody() {
   return (
     <div
       ref={rootRef}
-      className="relative z-10 mx-auto max-w-[1342px] bg-white rounded-[39px] shadow-[0px_0px_61.6px_0px_rgba(0,0,0,0.25)] px-[24px] pt-[60px] pb-[90px] mb-[100px]"
+      className="relative z-10 mx-auto max-w-[1342px] bg-white rounded-[24px] sm:rounded-[39px] shadow-[0px_0px_61.6px_0px_rgba(0,0,0,0.25)] px-5 pt-[44px] pb-[56px] mb-[64px] sm:px-[40px] md:px-[60px] md:pt-[60px] md:pb-[72px] md:mb-[80px]"
     >
       {/* ===== イベントラインナップ 見出し ===== */}
-      <div className="animate-on-scroll mb-[40px]">
-        <div className="flex items-center gap-[4px] mb-[18px]">
+      <div className="animate-on-scroll mb-[32px]">
+        <div className="flex items-center gap-[4px] mb-[14px]">
           {EGG_DOTS.map((src) => (
-            <Image key={src} src={src} alt="" width={20} height={20} />
+            <Image key={src} src={src} alt="" width={18} height={18} className="h-[18px] w-[18px]" />
           ))}
         </div>
-        <h2 className="text-[28px] font-medium text-[#333]">
+        <h2 className="text-[24px] font-medium text-[#333] sm:text-[28px]">
           イベントラインナップ
         </h2>
       </div>
 
       {/* ===== ページ内ナビ（3ボタン） ===== */}
-      <nav className="animate-on-scroll grid grid-cols-3 gap-[16px] mb-[80px]">
+      <nav className="animate-on-scroll grid grid-cols-3 gap-[12px] mb-[48px] sm:gap-[16px] md:mb-[64px]">
         {NAV.map((item) => {
           const isActive = active === item.id;
           return (
@@ -104,18 +104,18 @@ export function EventBody() {
               href={`#${item.id}`}
               onClick={(e) => handleNav(e, item.id)}
               aria-current={isActive ? "true" : undefined}
-              className={`flex flex-col items-center justify-center h-[88px] rounded-[14px] border-[3px] border-[#54c2dc] transition-all duration-300 ${
+              className={`flex flex-col items-center justify-center h-[68px] rounded-[14px] border-[3px] border-[#54c2dc] transition-all duration-300 md:h-[88px] ${
                 isActive
                   ? "bg-[#54c2dc] text-white"
                   : "bg-white text-[#54c2dc] hover:bg-[#54c2dc]/10"
               }`}
             >
-              <span className="text-[18px] font-medium text-center leading-tight px-2">
+              <span className="text-[13px] font-medium text-center leading-tight px-1 sm:text-[18px]">
                 {item.label}
               </span>
               <svg
-                width="26"
-                height="26"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
                 className="mt-[2px]"
@@ -136,7 +136,7 @@ export function EventBody() {
       {/* ===== プログラム ===== */}
       <Divider id="program" title="プログラム" />
 
-      <div className="flex flex-col gap-[80px] mb-[80px]">
+      <div className="flex flex-col gap-[40px] mb-[56px] md:gap-[56px] md:mb-[72px]">
         {EVENT_PROGRAMS.map((p) => (
           <div key={p.id} className="animate-on-scroll">
             <ProgramCarousel
@@ -152,18 +152,18 @@ export function EventBody() {
 
       {/* ===== その他、様々なプログラム（全幅レッドバンド） ===== */}
       <div className="animate-on-scroll">
-        <h3 className="text-[28px] font-bold text-[#333] text-center mb-[40px]">
+        <h3 className="text-[22px] font-bold text-[#333] text-center mb-[28px] sm:text-[28px] sm:mb-[36px]">
           その他、様々なプログラムをご用意
         </h3>
       </div>
 
       {/* 全幅レッドバンド（カードの内側余白・白カードを突き破って画面端まで） */}
       <div
-        className="relative w-screen bg-[#ec7072] py-[50px] mb-[50px]"
+        className="relative w-screen bg-[#ec7072] py-[40px] mb-[48px]"
         style={{ marginLeft: "calc(50% - 50vw)", marginRight: "calc(50% - 50vw)" }}
       >
         <div className="mx-auto max-w-[1632px] px-[24px]">
-          <div className="grid grid-cols-1 gap-[24px]">
+          <div className="grid grid-cols-2 gap-[16px] md:gap-[24px] lg:grid-cols-4">
             {EVENT_OTHER_PROGRAMS.map((label, i) => (
               <article
                 key={i}
@@ -186,7 +186,7 @@ export function EventBody() {
       </div>
 
       {/* ===== 関連リンク（サービス／実績） ===== */}
-      <div className="animate-on-scroll flex flex-wrap justify-center gap-[24px] mb-[100px]">
+      <div className="animate-on-scroll flex flex-wrap justify-center gap-[16px] mb-[56px] sm:gap-[24px] md:mb-[80px]">
         <LinkButton href="/#service" label="サービスを見る" color="#54c2dc" />
         <LinkButton href="/#track-record" label="実績を見る" color="#333333" />
       </div>
@@ -194,7 +194,7 @@ export function EventBody() {
       {/* ===== イベントの種類 ===== */}
       <Divider id="event-types" title="イベントの種類" />
 
-      <div className="grid grid-cols-1 gap-[24px] mb-[100px]">
+      <div className="grid grid-cols-1 gap-[20px] mb-[56px] sm:grid-cols-2 md:grid-cols-3 md:mb-[80px]">
         {EVENT_TYPES.map((t) => (
           <article
             key={t.no}
@@ -225,7 +225,7 @@ export function EventBody() {
       {/* ===== イベント形式 ===== */}
       <Divider id="event-formats" title="イベント形式" />
 
-      <div className="grid grid-cols-1 gap-[24px]">
+      <div className="grid grid-cols-1 gap-[20px] sm:grid-cols-3">
         {EVENT_FORMATS.map((label) => (
           <article
             key={label}
@@ -255,8 +255,8 @@ export function EventBody() {
 
 function Divider({ id, title }: { id: string; title: string }) {
   return (
-    <div id={id} className="animate-on-scroll scroll-mt-[140px] mb-[40px]">
-      <h2 className="text-[30px] font-medium text-[#333] mb-[16px]">
+    <div id={id} className="animate-on-scroll scroll-mt-[140px] mb-[28px] md:mb-[36px]">
+      <h2 className="text-[26px] font-medium text-[#333] mb-[14px] md:text-[30px] md:mb-[16px]">
         {title}
       </h2>
       <div className="flex items-center gap-[8px]">
