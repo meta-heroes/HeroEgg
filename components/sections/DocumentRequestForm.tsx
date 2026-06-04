@@ -139,7 +139,13 @@ export function DocumentRequestForm() {
             className="mt-[3px] h-[22px] w-[22px] shrink-0 accent-egg-blue"
           />
           <span>
-            <a href="#" className="font-bold text-egg-blue underline underline-offset-2">
+            <a
+              href="/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="font-bold text-egg-blue underline underline-offset-2"
+            >
               プライバシーポリシー
             </a>
             に同意します。
