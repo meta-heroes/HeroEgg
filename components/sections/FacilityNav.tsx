@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 const TABS = [
-  { id: "news", label: "お知らせ" },
   { id: "equipment", label: "設備・サービス" },
   { id: "pricing", label: "料金表" },
 ];
@@ -16,10 +15,10 @@ function ChevronDown() {
   );
 }
 
-/** 施設情報内のページ内ナビ（お知らせ / 設備・サービス / 料金表）。
+/** 施設情報内のページ内ナビ（設備・サービス / 料金表）。
  *  クリックで該当セクションへスムーススクロール、スクロール位置で自動ハイライト。 */
 export function FacilityNav() {
-  const [active, setActive] = useState("news");
+  const [active, setActive] = useState("equipment");
 
   useEffect(() => {
     const sections = TABS.map((t) => document.getElementById(t.id)).filter(
@@ -45,7 +44,7 @@ export function FacilityNav() {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-[16px] md:gap-[24px]">
+    <div className="grid grid-cols-2 gap-[16px] md:gap-[24px]">
       {TABS.map((tab) => {
         const isActive = active === tab.id;
         return (

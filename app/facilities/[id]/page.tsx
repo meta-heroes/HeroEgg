@@ -64,13 +64,6 @@ const USE_SCENES = [
   { title: "コンテスト", desc: "ピッチコンテストやeスポーツ大会など、様々なコンテストの会場としてご利用可能です。" },
 ];
 
-/* 最新情報（Figmaはプレースホルダー） */
-const NEWS = [
-  { date: "20XX.03.06", title: "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇 〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇" },
-  { date: "20XX.03.06", title: "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇 〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇" },
-  { date: "20XX.03.06", title: "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇 〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇" },
-];
-
 /* 設備・サービス（Figma node 52:536 準拠） */
 const EQUIPMENT = [
   { title: "ハイスペックゲーミングPC", desc: "ハイスペックゲーミングPC" },
@@ -270,28 +263,6 @@ export default async function FacilityDetailPage({
             <Reveal>
               <div className="aspect-[1025/577] w-full overflow-hidden rounded-[18px]">
                 <ImagePlaceholder className="h-full w-full" />
-              </div>
-            </Reveal>
-          </div>
-
-          {/* 最新情報 */}
-          <div className="mt-[80px]">
-            <SectionHead id="news" title="最新情報" />
-            <Reveal>
-              <div className="grid grid-cols-1 gap-[19px] sm:grid-cols-2 lg:grid-cols-3">
-                {NEWS.map((item, i) => (
-                  <a key={i} href="#" className="group block">
-                    <div className="aspect-[329/185] w-full overflow-hidden rounded-[12px]">
-                      <ImagePlaceholder className="h-full w-full transition-transform duration-300 group-hover:scale-105" />
-                    </div>
-                    <p className="mt-[18px] text-[16px] text-[#333]">{item.date}</p>
-                    <div className="mt-[12px] h-px w-full bg-egg-gray-light" />
-                    <p className="mt-[12px] text-[16px] leading-[1.6] text-[#333]">{item.title}</p>
-                  </a>
-                ))}
-              </div>
-              <div className="mt-[40px] flex justify-center">
-                <MoreButton />
               </div>
             </Reveal>
           </div>
