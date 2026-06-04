@@ -22,7 +22,7 @@ export default function AboutPage() {
         <BackgroundEggs />
 
         {/* ===== ページタイトル（カード外・中央） ===== */}
-        <section className="relative z-10 pt-[200px] pb-[60px] text-center">
+        <section className="relative z-10 pt-[120px] pb-[40px] text-center sm:pt-[200px] sm:pb-[60px]">
           <Reveal>
             <div className="mb-[6px] flex items-center justify-center gap-[10px]">
               <Image
@@ -30,18 +30,18 @@ export default function AboutPage() {
                 alt=""
                 width={59}
                 height={59}
-                className="rounded-full"
+                className="h-[40px] w-[40px] rounded-full sm:h-[59px] sm:w-[59px]"
               />
-              <span className="text-[24px] tracking-[0.1em] text-[#333]">About us</span>
+              <span className="text-[18px] tracking-[0.1em] text-[#333] sm:text-[24px]">About us</span>
             </div>
-            <h1 className="text-[64px] font-bold leading-tight text-[#333]">
+            <h1 className="text-[34px] font-bold leading-tight text-[#333] sm:text-[48px] lg:text-[64px]">
               Hero Eggについて
             </h1>
           </Reveal>
         </section>
 
         {/* ===== メイン白カード ===== */}
-        <div className="relative z-10 mx-auto mb-[120px] max-w-[1342px] rounded-[39px] bg-white px-[100px] py-[80px] shadow-[0px_0px_61.6px_0px_rgba(0,0,0,0.25)]">
+        <div className="relative z-10 mx-4 mb-[80px] rounded-[24px] bg-white px-5 py-[44px] shadow-[0px_0px_61.6px_0px_rgba(0,0,0,0.25)] sm:mx-6 sm:rounded-[39px] sm:px-10 sm:py-[64px] lg:mx-auto lg:mb-[120px] lg:max-w-[1342px] lg:px-[100px] lg:py-[80px]">
           {/* --- Hero Eggとは + ページ内ナビ --- */}
           <Reveal>
             <div className="mb-[28px]">
@@ -56,18 +56,18 @@ export default function AboutPage() {
                   />
                 ))}
               </div>
-              <h2 className="text-[48px] font-medium text-[#333]">Hero Eggとは</h2>
+              <h2 className="text-[30px] font-medium text-[#333] sm:text-[40px] lg:text-[48px]">Hero Eggとは</h2>
             </div>
           </Reveal>
 
           <Reveal>
-            <nav className="mb-[80px]">
-              <div className="mb-[15px] grid grid-cols-3 gap-[25px]">
+            <nav className="mb-[56px] sm:mb-[80px]">
+              <div className="mb-[12px] grid grid-cols-2 gap-[12px] sm:mb-[15px] sm:grid-cols-3 sm:gap-[25px]">
                 {PAGE_NAV.slice(0, 3).map((item) => (
                   <NavButton key={item.label} {...item} />
                 ))}
               </div>
-              <div className="grid grid-cols-4 gap-[17px]">
+              <div className="grid grid-cols-2 gap-[12px] sm:grid-cols-4 sm:gap-[17px]">
                 {PAGE_NAV.slice(3).map((item) => (
                   <NavButton key={item.label} {...item} />
                 ))}
@@ -77,8 +77,8 @@ export default function AboutPage() {
 
           {/* ===================== 誕生のきっかけ ===================== */}
           <SectionDivider id="kikkake" title="Hero Egg 誕生のきっかけ" />
-          <Reveal className="mb-[80px]">
-            <div className="mb-[50px] text-[24px] leading-[2] tracking-[0.1em] text-[#333]">
+          <Reveal className="mb-[56px] sm:mb-[80px]">
+            <div className="mb-[36px] text-[16px] leading-[1.9] tracking-[0.08em] text-[#333] sm:mb-[50px] sm:text-[20px] sm:leading-[2] lg:text-[24px]">
               <p>
                 地方でHoudiniを独学していたAさん。卓越した技術を持ちながら、就職の機会をつかめずにいました。そんな彼をSNSで発見し、一通のDMが採用へとつながりました。
               </p>
@@ -87,20 +87,20 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="mb-[50px] border-l-[5px] border-[#54c2dc] bg-[#e7f6fa] py-[35px] pl-[35px] pr-[35px]">
-              <p className="text-[32px] leading-[2] tracking-[0.1em] text-[#54c2dc]">
+            <div className="mb-[36px] border-l-[5px] border-[#54c2dc] bg-[#e7f6fa] py-[24px] pl-[20px] pr-[20px] sm:mb-[50px] sm:py-[35px] sm:pl-[35px] sm:pr-[35px]">
+              <p className="text-[19px] leading-[1.8] tracking-[0.08em] text-[#54c2dc] sm:text-[26px] sm:leading-[2] lg:text-[32px]">
                 もしあのDMが届かなければ——
                 <br />
                 その才能は、地方に埋もれたままだったでしょう。
               </p>
             </div>
 
-            <div className="relative overflow-hidden rounded-[18px] bg-[#fafafa] p-[67px] shadow-[inset_0px_0px_38.4px_-12px_rgba(0,0,0,0.1)]">
+            <div className="relative overflow-hidden rounded-[18px] bg-[#fafafa] p-6 shadow-[inset_0px_0px_38.4px_-12px_rgba(0,0,0,0.1)] sm:p-10 lg:p-[67px]">
               <DecoEggCluster />
-              <p className="relative z-10 mb-[20px] text-[36px] font-medium leading-[2] text-[#ec7072]">
+              <p className="relative z-10 mb-[16px] text-[21px] font-medium leading-[1.6] text-[#ec7072] sm:mb-[20px] sm:text-[28px] sm:leading-[2] lg:text-[36px]">
                 「できる場所がない」をなくすために。
               </p>
-              <div className="relative z-10 text-[24px] leading-[2] tracking-[0.1em] text-[#333]">
+              <div className="relative z-10 text-[16px] leading-[1.9] tracking-[0.08em] text-[#333] sm:text-[20px] sm:leading-[2] lg:text-[24px]">
                 <p>見過ごされがちな才能に、原体験と挑戦の場を。</p>
                 <p>Hero Eggは、才能を社会へとつなぐ、学びの拠点です。</p>
               </div>
@@ -109,26 +109,26 @@ export default function AboutPage() {
 
           {/* ===================== ミッション ===================== */}
           <SectionDivider id="mission" title="ミッション" />
-          <Reveal className="mb-[80px]">
-            <p className="mb-[30px] text-[48px] font-medium text-[#333]">
+          <Reveal className="mb-[56px] sm:mb-[80px]">
+            <p className="mb-[20px] text-[24px] font-medium text-[#333] sm:mb-[30px] sm:text-[36px] lg:text-[48px]">
               次世代のHEROを100人創出する
             </p>
-            <div className="relative flex h-[291px] items-center justify-center overflow-hidden rounded-[18px] bg-[#fafafa] shadow-[inset_0px_0px_38.4px_-12px_rgba(0,0,0,0.1)]">
+            <div className="relative flex min-h-[180px] items-center justify-center overflow-hidden rounded-[18px] bg-[#fafafa] px-6 py-10 shadow-[inset_0px_0px_38.4px_-12px_rgba(0,0,0,0.1)] sm:min-h-[240px] lg:h-[291px] lg:py-0">
               <Image
                 src="/images/decorations/egg-yellow.png"
                 alt=""
                 width={537}
                 height={537}
-                className="pointer-events-none absolute -left-[100px] -top-[80px] opacity-90"
+                className="pointer-events-none absolute -left-[100px] -top-[80px] w-[280px] opacity-90 sm:w-[400px] lg:w-[537px]"
               />
               <Image
                 src="/images/decorations/egg-yellow.png"
                 alt=""
                 width={537}
                 height={537}
-                className="pointer-events-none absolute -bottom-[80px] -right-[100px] opacity-90"
+                className="pointer-events-none absolute -bottom-[80px] -right-[100px] w-[280px] opacity-90 sm:w-[400px] lg:w-[537px]"
               />
-              <p className="relative z-10 text-center text-[48px] font-medium text-[#333]">
+              <p className="relative z-10 text-center text-[24px] font-medium leading-[1.5] text-[#333] sm:text-[36px] lg:text-[48px]">
                 次世代の<span className="font-bold text-[#54c2dc]">HERO</span>を
                 <span className="font-bold text-[#54c2dc]">100</span>人創出する
               </p>
@@ -141,7 +141,7 @@ export default function AboutPage() {
           {/* 魅力1: 原体験・環境・目標 */}
           <Reveal className="mb-[60px]">
             <FeatureHeading title="子どもたちの原体験・環境・目標を無償提供" />
-            <p className="mb-[40px] text-[24px] leading-[2] tracking-[0.1em] text-[#333]">
+            <p className="mb-[40px] text-[16px] leading-[1.9] tracking-[0.08em] text-[#333] sm:text-[20px] sm:leading-[2] lg:text-[24px]">
               子どもたちが持続的に学び続けられる仕組みを構築しています。「原体験・環境・目標」を一気通貫で設計し、継続可能な構造として循環させています。
             </p>
             <div className="space-y-[30px]">
@@ -167,7 +167,7 @@ export default function AboutPage() {
           {/* 魅力2: デジタルツイン教育環境 */}
           <Reveal className="mb-[60px]">
             <FeatureHeading title="誰も取り残さないデジタルツイン教育環境" />
-            <p className="mb-[40px] text-[24px] leading-[2] tracking-[0.1em] text-[#333]">
+            <p className="mb-[40px] text-[16px] leading-[1.9] tracking-[0.08em] text-[#333] sm:text-[20px] sm:leading-[2] lg:text-[24px]">
               リアル環境とバーチャル環境の両面から教育へアプローチ。リアル空間とバーチャル空間を融合することで、地域にいながら世界と接続できるデジタルツイン型の教育を実装しています。
             </p>
             <Image
@@ -190,7 +190,7 @@ export default function AboutPage() {
           {/* 魅力3: 持続可能な教育のエコシステム */}
           <Reveal className="mb-[80px]">
             <FeatureHeading title="持続可能な教育のエコシステム" />
-            <p className="mb-[40px] text-[24px] leading-[2] tracking-[0.1em] text-[#333]">
+            <p className="mb-[40px] text-[16px] leading-[1.9] tracking-[0.08em] text-[#333] sm:text-[20px] sm:leading-[2] lg:text-[24px]">
               Hero Eggは、国の助成金でAIリスキリング研修を実施し、大人がAIスキルを習得。その収益で子どもに無償のテクノロジー教育を提供し、子どものアイデアを地域・企業と連携して社会に還元するCSRモデルを実現しています。
             </p>
             <Image
@@ -205,15 +205,15 @@ export default function AboutPage() {
           {/* ===================== 豊富なイベント開催実績 ===================== */}
           <SectionDivider id="jisseki" title="豊富なイベント開催実績" />
           <Reveal className="mb-[80px]">
-            <p className="mb-[40px] text-[24px] leading-[2] text-[#333]">
+            <p className="mb-[40px] text-[16px] leading-[1.9] text-[#333] sm:text-[20px] sm:leading-[2] lg:text-[24px]">
               2025年は、150回のイベントを4,000名以上の子どもたちに無償提供しました。
             </p>
 
-            <div className="mb-[30px] flex h-[93px] items-center justify-center rounded-[18px] bg-gradient-to-r from-[#d9d9d9] to-[#f3f3f3]">
-              <span className="text-[48px] font-bold tracking-[0.1em] text-[#333]">2025</span>
+            <div className="mb-[24px] flex h-[64px] items-center justify-center rounded-[18px] bg-gradient-to-r from-[#d9d9d9] to-[#f3f3f3] sm:mb-[30px] sm:h-[93px]">
+              <span className="text-[34px] font-bold tracking-[0.1em] text-[#333] sm:text-[48px]">2025</span>
             </div>
 
-            <div className="mb-[50px] grid grid-cols-2 gap-[20px]">
+            <div className="mb-[36px] grid grid-cols-2 gap-[12px] sm:mb-[50px] sm:gap-[20px]">
               <StatCard
                 bg="#fed649"
                 fg="#333"
@@ -230,7 +230,7 @@ export default function AboutPage() {
               />
             </div>
 
-            <div className="mb-[40px] grid grid-cols-5 gap-[20px]">
+            <div className="mb-[36px] grid grid-cols-3 gap-[10px] sm:mb-[40px] sm:grid-cols-5 sm:gap-[20px]">
               {[1, 2, 3, 4, 5].map((i) => (
                 <div
                   key={i}
@@ -255,10 +255,10 @@ export default function AboutPage() {
           {/* ===================== サービス ===================== */}
           <SectionDivider id="service" title="サービス" />
           <Reveal className="mb-[80px]">
-            <p className="mb-[40px] text-[24px] leading-[2] text-[#333]">
+            <p className="mb-[40px] text-[16px] leading-[1.9] text-[#333] sm:text-[20px] sm:leading-[2] lg:text-[24px]">
               各種、目的に合わせてお選びいただけます。
             </p>
-            <div className="flex justify-between gap-[16px]">
+            <div className="-mx-5 flex gap-[12px] overflow-x-auto px-5 pb-3 sm:mx-0 sm:justify-between sm:gap-[16px] sm:overflow-visible sm:px-0 sm:pb-0">
               {SERVICE_CARDS.map((s, i) => (
                 <ServiceCard key={i} {...s} />
               ))}
@@ -268,10 +268,10 @@ export default function AboutPage() {
           {/* ===================== コミュニティー ===================== */}
           <SectionDivider id="community" title="コミュニティー" />
           <Reveal className="mb-[80px]">
-            <p className="mb-[40px] text-[24px] leading-[2] text-[#333]">
+            <p className="mb-[40px] text-[16px] leading-[1.9] text-[#333] sm:text-[20px] sm:leading-[2] lg:text-[24px]">
               子ども向けと大人向けのコミュニティー。
             </p>
-            <div className="flex flex-wrap gap-[48px]">
+            <div className="flex flex-wrap gap-6 sm:gap-[48px]">
               <CommunityCard
                 image="/images/community/card-eggjam.png"
                 lead="子どもたちで自らつくる"
@@ -311,7 +311,7 @@ export default function AboutPage() {
           {/* ===================== 今後の展望 ===================== */}
           <SectionDivider id="vision" title="今後の展望" />
           <Reveal>
-            <p className="mb-[40px] text-[24px] leading-[2] tracking-[0.1em] text-[#333]">
+            <p className="mb-[40px] text-[16px] leading-[1.9] tracking-[0.08em] text-[#333] sm:text-[20px] sm:leading-[2] lg:text-[24px]">
               全国には約900万戸以上もの空き施設/スペースが存在しています。私たちHero
               Eggは、これらをHEROを育成するDX教室へ変える取り組みを行っております。最先端技術を学べる環境を全国に届けるべく、2030年までにHero
               Egg 100店舗展開を目指し、新しい教育インフラを実装します。
@@ -454,7 +454,7 @@ function NavButton({ label, href }: { label: string; href: string }) {
   return (
     <a
       href={href}
-      className="flex h-[83px] flex-col items-center justify-center rounded-[14px] border-[3px] border-[#54c2dc] px-2 text-center text-[20px] font-medium leading-tight text-[#54c2dc] transition-colors duration-200 hover:bg-[#54c2dc] hover:text-white"
+      className="flex h-[64px] flex-col items-center justify-center rounded-[14px] border-[3px] border-[#54c2dc] px-2 text-center text-[13px] font-medium leading-tight text-[#54c2dc] transition-colors duration-200 hover:bg-[#54c2dc] hover:text-white sm:h-[83px] sm:text-[20px]"
     >
       <span>{label}</span>
       <svg
@@ -478,12 +478,12 @@ function NavButton({ label, href }: { label: string; href: string }) {
 
 function SectionDivider({ id, title }: { id: string; title: string }) {
   return (
-    <div id={id} className="mb-[40px] scroll-mt-[120px]">
-      <div className="mb-[16px] flex items-center gap-[8px]">
+    <div id={id} className="mb-[28px] scroll-mt-[100px] sm:mb-[40px] sm:scroll-mt-[120px]">
+      <div className="mb-[12px] flex items-center gap-[8px] sm:mb-[16px]">
         <div className="h-[3px] w-[30px] bg-[#54c2dc]" />
         <div className="h-[1px] flex-1 bg-[#d7d7d7]" />
       </div>
-      <h2 className="text-[40px] font-medium text-[#333]">{title}</h2>
+      <h2 className="text-[26px] font-medium text-[#333] sm:text-[32px] lg:text-[40px]">{title}</h2>
     </div>
   );
 }
@@ -491,8 +491,8 @@ function SectionDivider({ id, title }: { id: string; title: string }) {
 function FeatureHeading({ title }: { title: string }) {
   return (
     <div className="mb-[16px] flex items-start gap-[8px]">
-      <div className="mt-[4px] h-[44px] w-[4px] flex-shrink-0 rounded-full bg-[#54c2dc]" />
-      <h3 className="text-[36px] font-medium leading-tight text-[#333]">{title}</h3>
+      <div className="mt-[4px] h-[28px] w-[4px] flex-shrink-0 rounded-full bg-[#54c2dc] sm:h-[44px]" />
+      <h3 className="text-[22px] font-medium leading-tight text-[#333] sm:text-[28px] lg:text-[36px]">{title}</h3>
     </div>
   );
 }
@@ -509,16 +509,16 @@ function ColorBlock({
   button?: string;
 }) {
   return (
-    <div className="rounded-[18px] p-[50px]" style={{ backgroundColor: color }}>
-      <h4 className="mb-[16px] text-[28px] font-bold leading-[1.5] text-white">
+    <div className="rounded-[18px] p-6 sm:p-10 lg:p-[50px]" style={{ backgroundColor: color }}>
+      <h4 className="mb-[12px] text-[19px] font-bold leading-[1.5] text-white sm:mb-[16px] sm:text-[24px] lg:text-[28px]">
         {title}
       </h4>
-      <p className="text-[20px] leading-[2] text-white/95">{desc}</p>
+      <p className="text-[15px] leading-[1.9] text-white/95 sm:text-[18px] sm:leading-[2] lg:text-[20px]">{desc}</p>
       {button && (
         <div className="mt-[20px] flex justify-end">
           <a
             href="#"
-            className="inline-flex h-[61px] items-center gap-[8px] rounded-[30px] bg-[#333] px-[24px] text-[14px] font-bold text-white shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)] transition-transform hover:scale-105"
+            className="inline-flex h-[52px] items-center gap-[8px] rounded-[30px] bg-[#333] px-[20px] text-[13px] font-bold text-white shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)] transition-transform hover:scale-105 sm:h-[61px] sm:px-[24px] sm:text-[14px]"
           >
             {button}
             <Arrow />
@@ -543,13 +543,13 @@ function StatCard({
   suffix: string;
 }) {
   return (
-    <div className="rounded-[18px] p-[40px]" style={{ backgroundColor: bg }}>
-      <p className="mb-[10px] text-[24px] font-bold" style={{ color: fg }}>
+    <div className="rounded-[18px] p-5 sm:p-8 lg:p-[40px]" style={{ backgroundColor: bg }}>
+      <p className="mb-[6px] text-[15px] font-bold sm:mb-[10px] sm:text-[20px] lg:text-[24px]" style={{ color: fg }}>
         {label}
       </p>
       <div className="flex items-baseline">
-        <CountUp end={end} className="text-[80px] font-bold leading-none" style={{ color: fg }} />
-        <span className="ml-[4px] text-[24px] font-bold" style={{ color: fg }}>
+        <CountUp end={end} className="text-[30px] font-bold leading-none sm:text-[64px] lg:text-[80px]" style={{ color: fg }} />
+        <span className="ml-[4px] whitespace-nowrap text-[13px] font-bold sm:text-[20px] lg:text-[24px]" style={{ color: fg }}>
           {suffix}
         </span>
       </div>
@@ -611,7 +611,7 @@ function ServiceCard({
 }) {
   // 全カード同サイズ。ホバーで拡大＋カードがアクセント色に変化。矢印は常にアクセント色。
   return (
-    <div className="group relative h-[384px] flex-1 cursor-pointer overflow-hidden rounded-[18px] bg-[#ababab] transition-all duration-300 hover:z-10 hover:scale-[1.05] hover:shadow-[0px_14px_34px_-8px_rgba(0,0,0,0.3)]">
+    <div className="group relative h-[230px] w-[150px] flex-shrink-0 cursor-pointer overflow-hidden rounded-[18px] bg-[#ababab] transition-all duration-300 hover:z-10 hover:scale-[1.05] hover:shadow-[0px_14px_34px_-8px_rgba(0,0,0,0.3)] sm:h-[384px] sm:w-auto sm:flex-1">
       {/* ホバーで現れるアクセント色のオーバーレイ */}
       <div
         className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -654,7 +654,7 @@ function CommunityCard({
 }) {
   // Figma: 上部=写真+暗幕+白ロゴ / 下部=白地にリード文+名前+色付き矢印
   return (
-    <div className="w-[491px] max-w-full overflow-hidden rounded-[18px] bg-white shadow-[0px_0px_100.3px_-25px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-1">
+    <div className="w-full overflow-hidden rounded-[18px] bg-white shadow-[0px_0px_100.3px_-25px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-1 sm:w-[491px] sm:max-w-full">
       <div className="relative aspect-[491/276]">
         <Image src={image} alt={name} fill sizes="491px" className="object-cover" />
       </div>
@@ -691,18 +691,18 @@ function MemberRow({
 }) {
   // Figma: テキスト左・写真右（写真の背後に淡い青の卵が覗く合成画像）
   return (
-    <div className="flex items-start gap-[60px]">
-      <div className="flex-1 pt-[40px]">
-        <p className="mb-[4px] text-[18px] text-[#333]">{role}</p>
-        <h4 className="mb-[20px] text-[36px] font-bold text-[#333]">{name}</h4>
-        <div className="mb-[30px] text-[24px] font-bold leading-[1.6] text-[#333]">
+    <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-[60px]">
+      <div className="order-2 flex-1 sm:order-1 sm:pt-[40px]">
+        <p className="mb-[4px] text-[15px] text-[#333] sm:text-[18px]">{role}</p>
+        <h4 className="mb-[16px] text-[26px] font-bold text-[#333] sm:mb-[20px] sm:text-[30px] lg:text-[36px]">{name}</h4>
+        <div className="mb-[20px] text-[18px] font-bold leading-[1.6] text-[#333] sm:mb-[30px] sm:text-[22px] lg:text-[24px]">
           {catchCopy.map((c, i) => (
             <p key={i}>{c}</p>
           ))}
         </div>
-        <p className="text-[16px] leading-[2] text-[#333]">{bio}</p>
+        <p className="text-[15px] leading-[1.9] text-[#333] sm:text-[16px] sm:leading-[2]">{bio}</p>
       </div>
-      <div className="w-[488px] flex-shrink-0">
+      <div className="order-1 mx-auto w-[260px] max-w-full flex-shrink-0 sm:order-2 sm:mx-0 sm:w-[488px]">
         <Image
           src={photo}
           alt={name}
@@ -718,24 +718,24 @@ function MemberRow({
 
 function FutureVision() {
   return (
-    <div className="relative flex h-[420px] items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#54c2dc] to-[#52bc9a]">
+    <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#54c2dc] to-[#52bc9a] px-6 py-12 sm:min-h-[320px] lg:h-[420px] lg:py-0">
       <Image
         src="/images/decorations/egg-yellow.png"
         alt=""
         width={420}
         height={420}
-        className="pointer-events-none absolute -left-[60px] -bottom-[80px] opacity-30"
+        className="pointer-events-none absolute -left-[60px] -bottom-[80px] w-[240px] opacity-30 sm:w-[420px]"
       />
       <Image
         src="/images/decorations/egg-orange.png"
         alt=""
         width={360}
         height={360}
-        className="pointer-events-none absolute -right-[40px] -top-[60px] opacity-30"
+        className="pointer-events-none absolute -right-[40px] -top-[60px] w-[200px] opacity-30 sm:w-[360px]"
       />
       <div className="relative z-10 text-center text-white drop-shadow">
-        <p className="text-[64px] font-bold leading-none tracking-[0.05em]">2030年</p>
-        <p className="mt-[12px] text-[80px] font-bold leading-none">100店舗展開</p>
+        <p className="text-[36px] font-bold leading-none tracking-[0.05em] sm:text-[48px] lg:text-[64px]">2030年</p>
+        <p className="mt-[12px] text-[44px] font-bold leading-none sm:text-[60px] lg:text-[80px]">100店舗展開</p>
       </div>
     </div>
   );
