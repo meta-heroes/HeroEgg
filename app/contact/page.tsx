@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { LINE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "お問い合わせ | Hero Egg",
@@ -73,7 +74,9 @@ export default function ContactPage() {
               <Arrow />
             </a>
             <a
-              href="#"
+              href={LINE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-[18px] rounded-[18px] bg-[#06c755] px-[28px] py-[22px] text-white shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
             >
               <Image src="/images/icons/line-brand.png" alt="" width={48} height={48} className="h-[48px] w-auto rounded-[12px]" />

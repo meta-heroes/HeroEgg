@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { LINE_URL } from "@/lib/constants";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export function ContactCTASection() {
@@ -50,7 +51,9 @@ export function ContactCTASection() {
               </a>
 
               <a
-                href="#"
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 h-[80px] md:h-[104px] rounded-[51px] bg-[#06c755] text-white text-[24px] md:text-[36px] font-bold shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)] hover:-translate-y-0.5 hover:shadow-lg transition-all"
               >
                 <Image src="/images/icons/line-brand.png" alt="" width={72} height={72} className="h-[56px] md:h-[72px] w-auto rounded-[51px]" />

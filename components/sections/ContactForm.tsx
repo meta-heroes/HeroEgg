@@ -39,6 +39,8 @@ export function ContactForm() {
   const [fields, setFields] = useState<Fields>(INITIAL);
   const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
   const update = <K extends keyof Fields>(key: K, value: Fields[K]) => {
     setFields((prev) => ({ ...prev, [key]: value }));
@@ -57,17 +59,34 @@ export function ContactForm() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (ev: FormEvent) => {
+  const handleSubmit = async (ev: FormEvent) => {
     ev.preventDefault();
+    if (sending) return;
+    setSendError(null);
     if (!validate()) {
       // 最初のエラー項目へスクロール
       const firstKey = Object.keys(errors)[0];
       if (firstKey) document.getElementById(`field-${firstKey}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
-    // バックエンド未接続：送信完了状態を表示（API 接続時はここで fetch する）
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error ?? "送信に失敗しました。時間をおいて再度お試しください。");
+      }
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      setSendError(err instanceof Error ? err.message : "送信に失敗しました。時間をおいて再度お試しください。");
+    } finally {
+      setSending(false);
+    }
   };
 
   if (submitted) {
@@ -201,16 +220,26 @@ export function ContactForm() {
         {errors.agree && <p className="mt-[8px] text-[14px] font-bold text-egg-red">{errors.agree}</p>}
       </div>
 
+      {/* 送信エラー */}
+      {sendError && (
+        <p role="alert" className="text-center text-[15px] font-bold text-[#d33]">
+          {sendError}
+        </p>
+      )}
+
       {/* 送信ボタン */}
       <div className="flex justify-center pt-[12px]">
         <button
           type="submit"
-          className="group inline-flex h-[68px] w-[320px] max-w-full items-center justify-center gap-3 rounded-[34px] bg-[#333] text-[20px] font-bold text-white shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#222] hover:shadow-lg"
+          disabled={sending}
+          className="group inline-flex h-[68px] w-[320px] max-w-full items-center justify-center gap-3 rounded-[34px] bg-[#333] text-[20px] font-bold text-white shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#222] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
         >
-          送信する
-          <svg width="25" height="10" viewBox="0 0 25 10" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
-            <path d="M0 5h23M18 1l5 4-5 4" stroke="currentColor" strokeWidth="1.5" fill="none" />
-          </svg>
+          {sending ? "送信中..." : "送信する"}
+          {!sending && (
+            <svg width="25" height="10" viewBox="0 0 25 10" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M0 5h23M18 1l5 4-5 4" stroke="currentColor" strokeWidth="1.5" fill="none" />
+            </svg>
+          )}
         </button>
       </div>
     </form>

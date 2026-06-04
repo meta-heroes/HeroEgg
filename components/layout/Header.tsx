@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MAIN_NAV } from "@/lib/constants";
+import { MAIN_NAV, LINE_URL } from "@/lib/constants";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,7 +27,7 @@ export function Header() {
           <div className="flex-1" />
 
           <div className="flex items-center gap-[28px]">
-            <a href="#"
+            <a href={LINE_URL} target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2 h-[54px] px-5 rounded-[51px] bg-[#06c755] shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)] hover:-translate-y-0.5 hover:shadow-lg transition-all">
               <Image src="/images/icons/line-brand.png" alt="" width={46} height={46} className="h-[46px] w-auto rounded-[51px]" />
               <span className="font-bold text-[20px] text-white">公式LINE</span>
@@ -142,7 +142,7 @@ export function Header() {
 
           {/* CTAボタン */}
           <div className="mt-8 space-y-3">
-            <a href="#"
+            <a href={LINE_URL} target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 h-[54px] rounded-[51px] bg-[#06c755] text-white text-[18px] font-bold shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)]"
               onClick={() => setIsMenuOpen(false)}>
               <Image src="/images/icons/line-brand.png" alt="" width={36} height={36} className="rounded-full" />

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { EVENT_IMAGES } from "@/lib/constants";
+import { EVENT_IMAGES, LINE_URL } from "@/lib/constants";
 import { ScaledStage } from "@/components/ui/ScaledStage";
 import { useAutoSlide } from "@/hooks/useAutoSlide";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
@@ -104,7 +104,9 @@ export function EventSection() {
 
         {/* ボタン: LINEで最新情報GET */}
         <a
-          href="#"
+          href={LINE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="absolute flex items-center gap-2 rounded-[51px] bg-[#06c755] shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)] hover:-translate-y-0.5 hover:shadow-lg transition-all"
           style={{
             left: "23.18%",
@@ -219,7 +221,9 @@ export function EventSection() {
               </svg>
             </a>
             <a
-              href="#"
+              href={LINE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 h-[54px] rounded-[51px] bg-[#06c755] text-white text-[16px] font-bold shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)]"
             >
               <Image src="/images/icons/line-brand.png" alt="" width={36} height={36} className="rounded-full" />

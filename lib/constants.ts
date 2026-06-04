@@ -1,3 +1,6 @@
+/** Hero Egg 公式LINEの友だち追加URL（全LINEボタン共通の真実）。 */
+export const LINE_URL = "https://line.me/R/ti/p/@280dhzzg";
+
 export const NAV_ITEMS = [
   { label: "Hero Eggについて", href: "/about" },
   { label: "サービス", href: "/service-community" },
