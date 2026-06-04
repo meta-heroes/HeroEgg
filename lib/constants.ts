@@ -329,9 +329,9 @@ export const FOOTER_NAV = {
   },
   legal: [
     { label: "運営会社", href: "/company" },
-    { label: "利用規約", href: "#" },
-    { label: "プライバシーポリシー", href: "#" },
-    { label: "特定取引法に基づく表記", href: "#" },
+    { label: "利用規約", href: "/terms" },
+    { label: "プライバシーポリシー", href: "/privacy" },
+    { label: "特定取引法に基づく表記", href: "/tokushoho" },
   ],
   copyright: "© Meta Heroes, inc. All rights reserved.",
 } as const;
