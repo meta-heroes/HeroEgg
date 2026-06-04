@@ -174,109 +174,76 @@ export function FirstViewSection() {
 
       {/* ===== モバイル ===== */}
       <div
-        className="lg:hidden pt-24 pb-12 transition-[background-color] duration-700 overflow-hidden"
+        className="lg:hidden flex min-h-[100svh] flex-col px-6 pt-[88px] pb-6 transition-[background-color] duration-700 overflow-hidden"
         style={{ backgroundColor: slide.bgColor }}
       >
-        <div className="px-6 mb-6">
-          <p className="font-bold text-[28px] text-[#333] leading-[normal] mb-1">
+        {/* タイトル */}
+        <div className="text-center">
+          <p className="font-bold text-[19px] sm:text-[22px] text-[#333]/90 leading-snug tracking-wide">
             子どもから大人まで学べる
           </p>
-          <h1 className="font-bold text-[48px] text-[#333] leading-none">DX教育施設</h1>
+          <h1 className="font-bold text-[42px] sm:text-[52px] text-[#333] leading-tight">
+            DX教育施設
+          </h1>
         </div>
 
-        <div className="px-6 flex flex-col gap-3 mb-6">
-          <a
-            href="#contact"
-            className="flex items-center justify-center gap-2 h-[56px] rounded-[47px] bg-[#333] text-white text-[20px] font-bold shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)]"
-          >
-            <Image src="/images/icons/doc-icon.png" alt="" width={24} height={32} />
-            資料請求
-          </a>
-          <a
-            href="#contact"
-            className="flex items-center justify-center gap-2 h-[56px] rounded-[47px] bg-white border-3 border-[#333] text-[#333] text-[20px] font-bold shadow-[0px_2px_11.9px_0px_rgba(0,0,0,0.25)]"
-          >
-            お問い合わせ
-          </a>
+        {/* ターンテーブル（主役ビジュアル・画面幅いっぱいに大きく） */}
+        <div className="-mx-6 -my-4 flex flex-1 items-center justify-center">
+          <Turntable rotation={currentSlide * -72} className="w-[125%] max-w-none shrink-0" />
         </div>
 
-        {/* モバイル版スライド画像 (クロスフェード) */}
-        <div className="px-6 mb-4">
-          <div className="relative aspect-[1304/800] w-full overflow-hidden rounded-[20px] shadow-[0px_8px_24px_rgba(0,0,0,0.12)]">
-            {SLIDES.map((s, i) => (
-              <Image
-                key={s.image}
-                src={s.image}
-                alt={s.label.join(" ")}
-                fill
-                sizes="100vw"
-                className={`object-cover transition-opacity duration-700 ${
-                  i === currentSlide ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* モバイル版ターンテーブル — 全体を中央に表示（見切れ防止） */}
-        <div className="px-6 mb-2 flex justify-center">
-          <Turntable
-            rotation={currentSlide * -72}
-            className="w-full max-w-[320px]"
-          />
-        </div>
-
-        {/* スライドテキスト */}
-        <div className="px-6 text-center mb-4 h-[80px] relative">
+        {/* スライドラベル（回転に同期） */}
+        <div className="relative h-[56px] text-center">
           {SLIDES.map((s, i) => (
             <div
               key={i}
-              className="absolute inset-0 flex flex-col items-center justify-center font-bold text-[28px] leading-[normal] transition-opacity duration-500"
+              className="absolute inset-0 flex flex-col items-center justify-center font-bold text-[26px] leading-[1.15] transition-opacity duration-500"
               style={{
                 color: s.textColor,
                 opacity: i === currentSlide ? 1 : 0,
-                WebkitTextStroke: "4px #fff",
+                WebkitTextStroke: "3px #fff",
                 paintOrder: "stroke",
               }}
             >
-              <p>{s.label[0]}</p>
-              <p>{s.label[1]}</p>
+              <span>{s.label[0]}</span>
+              <span>{s.label[1]}</span>
             </div>
           ))}
         </div>
 
-        {/* 矢印 + ドット */}
-        <div className="px-6 flex items-center justify-center gap-4">
-          <button
-            onClick={prev}
-            className="w-[44px] h-[44px] rounded-full bg-white/80 flex items-center justify-center cursor-pointer"
-            aria-label="前へ"
+        {/* ドットインジケーター（アクティブは横長） */}
+        <div className="mt-1 flex items-center justify-center gap-2">
+          {SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`h-[10px] rounded-full transition-all duration-300 cursor-pointer ${
+                i === currentSlide ? "w-6 bg-[#333]" : "w-[10px] bg-[#333]/30"
+              }`}
+              aria-label={`スライド ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-4 flex flex-col gap-3">
+          <a
+            href="#contact"
+            className="flex h-[54px] items-center justify-center gap-2 rounded-full bg-[#333] text-[18px] font-bold text-white shadow-[0px_4px_14px_rgba(0,0,0,0.2)] transition-transform active:scale-[0.98]"
           >
-            <svg width="10" height="18" viewBox="0 0 10 18" fill="none">
-              <path d="M8 2L2 9l6 7" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          <div className="flex items-center gap-2">
-            {SLIDES.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentSlide(i)}
-                className={`w-3 h-3 rounded-full transition-all cursor-pointer ${
-                  i === currentSlide ? "bg-[#333]" : "bg-[#333]/30"
-                }`}
-                aria-label={`スライド ${i + 1}`}
-              />
-            ))}
-          </div>
-          <button
-            onClick={next}
-            className="w-[44px] h-[44px] rounded-full bg-white/80 flex items-center justify-center cursor-pointer"
-            aria-label="次へ"
+            <Image src="/images/icons/doc-icon.png" alt="" width={22} height={30} />
+            資料請求
+          </a>
+          <a
+            href="#contact"
+            className="flex h-[54px] items-center justify-center gap-2 rounded-full bg-white text-[18px] font-bold text-[#333] shadow-[0px_4px_14px_rgba(0,0,0,0.12)] transition-transform active:scale-[0.98]"
           >
-            <svg width="10" height="18" viewBox="0 0 10 18" fill="none">
-              <path d="M2 2l6 7-6 7" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <svg width="26" height="24" viewBox="0 0 38 38" fill="none">
+              <rect x="3" y="7" width="32" height="24" rx="3" stroke="#333" strokeWidth="2" />
+              <path d="M3 13l16 10 16-10" stroke="#333" strokeWidth="2" />
             </svg>
-          </button>
+            お問い合わせ
+          </a>
         </div>
       </div>
     </section>

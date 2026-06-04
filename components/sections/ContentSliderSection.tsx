@@ -1,12 +1,48 @@
 "use client";
 
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { CONTENT_SLIDES } from "@/lib/constants";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { useAutoSlide } from "@/hooks/useAutoSlide";
 
 export function ContentSliderSection() {
-  const { currentIndex, goTo, pause, resume } = useAutoSlide(CONTENT_SLIDES.length, 3000);
+  const { currentIndex, next, prev, goTo, pause, resume } = useAutoSlide(
+    CONTENT_SLIDES.length,
+    3000,
+  );
+
+  // 指でのスワイプ操作（モバイル）。ドラッグ中は指に追従し、離した時に閾値で切替。
+  // 判定は ref（同期更新）で行い、state は表示の追従用にのみ使う。
+  const touchStartX = useRef<number | null>(null);
+  const dragX = useRef(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const isDragging = dragOffset !== 0;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    pause();
+    touchStartX.current = e.touches[0].clientX;
+    dragX.current = 0;
+    setDragOffset(0);
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const d = e.touches[0].clientX - touchStartX.current;
+    dragX.current = d;
+    setDragOffset(d);
+  };
+  const onTouchEnd = () => {
+    const SWIPE_THRESHOLD = 50;
+    if (dragX.current <= -SWIPE_THRESHOLD && currentIndex < CONTENT_SLIDES.length - 1) {
+      next();
+    } else if (dragX.current >= SWIPE_THRESHOLD && currentIndex > 0) {
+      prev();
+    }
+    touchStartX.current = null;
+    dragX.current = 0;
+    setDragOffset(0);
+    resume();
+  };
 
   return (
     <section className="bg-white py-16 overflow-hidden">
@@ -15,11 +51,16 @@ export function ContentSliderSection() {
         onMouseEnter={pause}
         onMouseLeave={resume}
       >
-        <div className="overflow-hidden px-6">
+        <div
+          className="overflow-hidden px-6 touch-pan-y select-none"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           <div
-            className="flex gap-6 transition-transform duration-500 ease-in-out"
+            className={`flex gap-6 ${isDragging ? "" : "transition-transform duration-500 ease-in-out"}`}
             style={{
-              transform: `translateX(calc(-${currentIndex} * (min(437px, 80vw) + 24px)))`,
+              transform: `translateX(calc(-${currentIndex} * (min(437px, 80vw) + 24px) + ${dragOffset}px))`,
             }}
           >
             {CONTENT_SLIDES.map((slide) => (

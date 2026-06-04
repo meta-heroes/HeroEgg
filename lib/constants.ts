@@ -331,9 +331,9 @@ export const FOOTER_NAV = {
     { label: "運営会社", href: "/company" },
     { label: "利用規約", href: "/terms" },
     { label: "プライバシーポリシー", href: "/privacy" },
-    { label: "特定取引法に基づく表記", href: "/tokushoho" },
+    { label: "特定商取引法に基づく表記", href: "/tokushoho" },
   ],
-  copyright: "© Meta Heroes, inc. All rights reserved.",
+  copyright: "© Hero Egg, inc. All rights reserved.",
 } as const;
 
 /* ========================================================================
