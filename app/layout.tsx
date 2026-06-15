@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -37,6 +38,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
   },
+  verification: {
+    google: "Hf3vxUx4g2wZpST0UhdndQFRyhQ1h3qV5tk_8I7tvIk",
+  },
 };
 
 export default function RootLayout({
@@ -50,6 +54,7 @@ export default function RootLayout({
       className={`${inter.variable} ${notoSansJP.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
+      <GoogleAnalytics gaId="G-DGBFTN2JC9" />
     </html>
   );
 }
