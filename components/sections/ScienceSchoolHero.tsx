@@ -2,18 +2,10 @@ import Image from "next/image";
 import { ApplyButton } from "@/components/sections/ScienceSchoolApply";
 import { GenkiLaboWordmark } from "@/components/sections/GenkiLaboWordmark";
 
-/** ファーストビュー直下に並べる募集条件のサマリー（本文の募集要項と重複させない粒度） */
-const QUICK_FACTS = [
-  { label: "勤務頻度", value: "月4回程度" },
-  { label: "契約形態", value: "業務委託" },
-  { label: "対象", value: "小中学生" },
-  { label: "勤務地", value: "なんばパークス1F" },
-];
-
 /**
  * 講師募集ページのファーストビュー。
  * 「科学を教える人ではなく、科学を好きにさせる人へ」という世界観を
- * 最初の一画面で伝えきることを優先し、募集条件は要点のみを添える。
+ * 最初の一画面で伝えきることに絞る（募集条件は本文の「募集条件」に集約）。
  */
 export function ScienceSchoolHero() {
   return (
@@ -65,44 +57,18 @@ export function ScienceSchoolHero() {
             <div className="mt-[34px] flex justify-center lg:justify-start">
               <ApplyButton />
             </div>
-
-            {/* 募集条件のサマリー */}
-            <dl className="mt-[32px] grid grid-cols-2 gap-[10px] sm:flex sm:flex-wrap sm:gap-[12px] lg:justify-start">
-              {QUICK_FACTS.map((fact) => (
-                <div
-                  key={fact.label}
-                  className="rounded-[14px] border border-egg-gray-light bg-white/80 px-[14px] py-[10px] text-left"
-                >
-                  <dt className="text-[11px] tracking-[0.06em] text-egg-gray">{fact.label}</dt>
-                  <dd className="mt-[2px] text-[14px] font-bold text-[#333] sm:text-[15px]">
-                    {fact.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </div>
 
           {/* ===== 右：ビジュアル ===== */}
-          <div className="animate-fade-in-up relative">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[30px] border-[8px] border-egg-blue bg-egg-gray-light shadow-[0px_20px_46px_-18px_rgba(0,0,0,0.35)] sm:aspect-[5/6] lg:border-[10px]">
-              <Image
-                src="/images/events/event-4.png"
-                alt="Hero Eggの教室で授業に見入る子どもたち"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 560px"
-                className="object-cover"
-              />
-            </div>
-
-            {/* 吹き出し風のコピー */}
-            <div className="absolute -bottom-[18px] left-[8px] rotate-[-3deg] rounded-[18px] bg-egg-yellow px-[18px] py-[12px] shadow-[0px_6px_18px_rgba(0,0,0,0.18)] sm:left-[24px] sm:px-[24px] sm:py-[15px]">
-              <p className="text-[14px] font-bold leading-[1.5] text-[#333] sm:text-[17px]">
-                「なんで？」があふれる教室を、
-                <br />
-                一緒につくる。
-              </p>
-            </div>
+          <div className="animate-fade-in-up relative aspect-[4/5] w-full overflow-hidden rounded-[30px] border-[8px] border-egg-blue bg-egg-gray-light shadow-[0px_20px_46px_-18px_rgba(0,0,0,0.35)] sm:aspect-[5/6] lg:border-[10px]">
+            <Image
+              src="/images/events/event-4.png"
+              alt="Hero Eggの教室で授業に見入る子どもたち"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 560px"
+              className="object-cover"
+            />
           </div>
         </div>
       </div>
