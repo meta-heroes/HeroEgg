@@ -58,6 +58,7 @@ export const MAIN_NAV = [
   { label: "実績", href: "/#track-record" },
   { label: "お知らせ", href: "/news" },
   { label: "よくある質問", href: "/#faq" },
+  { label: "講師募集", href: "/recruit/science-school" },
   { label: "運営会社", href: "/company" },
 ] as const;
 
@@ -295,6 +296,7 @@ export const FOOTER_NAV = {
       links: [
         { label: "ビジョン", href: "/#vision" },
         { label: "特徴", href: "/#features" },
+        { label: "講師募集", href: "/recruit/science-school" },
       ],
     },
     {
@@ -554,3 +556,130 @@ export const SERVICE_COMMUNITY: {
     ],
   },
 } as const;
+
+/* ========================================================================
+ * 講師募集ページ (Hero Egg × GENKI LABO サイエンススクール)
+ * ---------------------------------------------------------------------
+ * /recruit/science-school の掲載内容（単一の真実）。
+ * フライヤー用の募集要項をベースに、Web 向けの見せ方へ再構成している。
+ * 募集を終了するときは SCIENCE_SCHOOL_OPEN を false にする（ページ側で
+ * 応募ボタンが「募集は終了しました」に切り替わる）。
+ * ===================================================================== */
+
+/** 応募フォーム（Googleフォーム）。ページ内の全応募ボタン共通の真実。 */
+export const SCIENCE_SCHOOL_FORM_URL = "https://forms.gle/m9UDnfAYJessEfbp6";
+
+/** 募集中かどうか。採用者が決まり次第 false にする。 */
+export const SCIENCE_SCHOOL_OPEN = true;
+
+/** 冒頭の世界観ブロック：子どもに起きる「3つの瞬間」 */
+export const SCIENCE_SCHOOL_MOMENTS = [
+  {
+    no: "01",
+    title: "驚き",
+    body: "目の前で起きたことが信じられない。実験を見たその一瞬が、科学への入り口になります。",
+  },
+  {
+    no: "02",
+    title: "喜び",
+    body: "自分で試して成功したときの手ごたえが、「もう一度やってみたい」を育てます。",
+  },
+  {
+    no: "03",
+    title: "興味",
+    body: "「なんで？」と問いが生まれた瞬間から、子どもは自分の力で学びはじめます。",
+  },
+] as const;
+
+/** 主な業務（01〜04） */
+export const SCIENCE_SCHOOL_DUTIES = [
+  {
+    no: "01",
+    title: "科学スクールの講師",
+    body: "小中学生に向けて、科学の面白さを伝えます。",
+  },
+  {
+    no: "02",
+    title: "実験・授業の実施",
+    body: "カリキュラムに沿って、実験を交えた授業を行います。",
+  },
+  {
+    no: "03",
+    title: "授業前後の準備・片付け",
+    body: "実験器具や教材の準備、終了後の片付けを行います。",
+  },
+  {
+    no: "04",
+    title: "オンラインレクチャーへの参加",
+    body: "GENKI LABOスタッフによるレクチャーに参加し、授業の進め方や科学の伝え方を学びます。",
+  },
+] as const;
+
+/** 募集条件テーブル（note は表内の補足注記） */
+export const SCIENCE_SCHOOL_TERMS: {
+  label: string;
+  value: string;
+  note?: string;
+}[] = [
+  {
+    label: "勤務形態",
+    value: "応相談",
+    note: "アルバイト・正社員・業務委託等を含め、経験や希望する働き方に応じてご相談のうえ決定します。",
+  },
+  {
+    label: "報酬・給与",
+    value: "面談のうえ決定",
+    note: "経験・スキル・勤務形態・担当内容を考慮して決定します。",
+  },
+  { label: "勤務頻度", value: "月4回程度" },
+  { label: "曜日", value: "未定・応相談" },
+  { label: "契約形態", value: "応相談" },
+  { label: "対象", value: "小中学生" },
+  {
+    label: "勤務地",
+    value: "eスタジアムなんば本店 Hero Egg",
+    note: "〒556-0011 大阪府大阪市浪速区難波中2丁目10-70 なんばパークス1F",
+  },
+];
+
+/** 歓迎する経験・人物像 */
+export const SCIENCE_SCHOOL_WELCOME = [
+  "理系学部・大学院に在籍、または卒業された方",
+  "教員・塾講師・科学館などでの指導経験がある方",
+  "実験・研究経験がある方",
+  "子ども向けの指導経験がある方",
+  "GENKI LABO・元気先生の活動や考え方に共感できる方",
+  "子ども一人ひとりに丁寧に向き合える方",
+] as const;
+
+/** GENKI LABO × Hero Egg それぞれの紹介 */
+export const SCIENCE_SCHOOL_PARTNERS = [
+  {
+    name: "GENKI LABO",
+    accent: "#f6a04d",
+    lead: "「科学で日本を元気に！」",
+    body: "科学の面白さ・楽しさを、実験とエンターテインメントで多くの人へ届けています。",
+  },
+  {
+    name: "Hero Egg",
+    accent: "#54c2dc",
+    lead: "新しい「原体験・環境・目標」を。",
+    body: "子どもたちにまだ知らない世界との出会いをつくる、DX教育施設です。",
+  },
+] as const;
+
+/** 選考フロー */
+export const SCIENCE_SCHOOL_FLOW = [
+  {
+    no: "01",
+    title: "Googleフォームから応募",
+    body: "履歴書（PDF）を添えてご応募ください。",
+  },
+  { no: "02", title: "内容確認", body: "ご提出内容を確認し、担当者よりご連絡します。" },
+  {
+    no: "03",
+    title: "面談",
+    body: "働き方・担当内容・報酬について、お互いにすり合わせます。",
+  },
+  { no: "04", title: "採用", body: "条件に合意のうえ、講師としてご参加いただきます。" },
+] as const;
