@@ -8,7 +8,7 @@ import { SCIENCE_SCHOOL_FORM_URL } from "@/lib/constants";
 
 const TITLE = "サイエンススクール講師募集 | Hero Egg × GENKI LABO";
 const DESCRIPTION =
-  "「科学を教える人」ではなく「科学を好きにさせる人」へ。Hero Egg × GENKI LABOが、小中学生向けサイエンススクールの講師を募集します。月4回程度・業務委託・勤務地はeスタジアムなんば本店 Hero Egg。";
+  "「科学を教える人」ではなく「科学を好きにさせる人」へ。Hero Egg × GENKI LABOが、小中学生向けサイエンススクールの講師を募集します。月4回程度、勤務形態・契約形態は応相談。勤務地はeスタジアムなんば本店 Hero Egg。";
 
 /** 求人の掲載開始日（JobPosting 構造化データ用）。公開日に合わせて更新する。 */
 const POSTED_DATE = "2026-09-20";
@@ -81,7 +81,8 @@ function JobPostingJsonLd() {
     description:
       "<p>小中学生を対象とした科学・実験スクールの講師です。カリキュラムに沿って実験を交えた授業を行い、授業前後の準備・片付け、GENKI LABO・元気先生によるオンラインレクチャーへの参加をお願いします。</p>",
     datePosted: POSTED_DATE,
-    employmentType: "CONTRACTOR",
+    // 契約形態は応相談のため、想定される形態をすべて挙げる
+    employmentType: ["CONTRACTOR", "PART_TIME", "FULL_TIME"],
     directApply: false,
     applicantLocationRequirements: { "@type": "Country", name: "JP" },
     hiringOrganization: {

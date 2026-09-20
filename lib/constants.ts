@@ -633,7 +633,7 @@ export const SCIENCE_SCHOOL_TERMS: {
   },
   { label: "勤務頻度", value: "月4回程度" },
   { label: "曜日", value: "未定・応相談" },
-  { label: "契約形態", value: "業務委託" },
+  { label: "契約形態", value: "応相談" },
   { label: "対象", value: "小中学生" },
   {
     label: "勤務地",
