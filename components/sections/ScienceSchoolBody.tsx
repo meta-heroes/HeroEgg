@@ -92,27 +92,20 @@ export function ScienceSchoolBody() {
             </p>
           </div>
 
-          <ul className="mt-[36px] grid gap-[18px] md:grid-cols-3 lg:mt-[48px] lg:gap-[24px]">
+          <ul className="mt-[36px] grid gap-[18px] md:auto-rows-fr md:grid-cols-3 lg:mt-[48px] lg:gap-[22px]">
             {SCIENCE_SCHOOL_MOMENTS.map((moment, i) => (
               <li
-                key={moment.label}
-                className="animate-on-scroll relative overflow-hidden rounded-[22px] bg-[#fafafa] p-[26px] lg:p-[32px]"
+                key={moment.no}
+                className="animate-on-scroll h-full rounded-[14px] bg-[#fafafa] p-[26px] lg:p-[30px]"
                 style={{ transitionDelay: `${i * 90}ms` }}
               >
-                <span
-                  className="absolute left-0 top-0 h-full w-[6px]"
-                  style={{ backgroundColor: moment.accent }}
-                />
-                <span
-                  className="inline-flex h-[34px] items-center rounded-full px-[14px] text-[13px] font-bold text-white"
-                  style={{ backgroundColor: moment.accent }}
-                >
-                  {moment.label}
-                </span>
-                <p className="mt-[16px] text-[18px] font-bold leading-[1.6] text-[#333] lg:text-[20px]">
-                  {moment.title}
-                </p>
-                <p className="mt-[12px] text-[14px] leading-[1.9] text-[#333]/80 lg:text-[15px]">
+                <div className="flex items-start gap-[14px]">
+                  <CardNumber>{moment.no}</CardNumber>
+                  <p className="pt-[3px] text-[20px] font-bold leading-[1.4] text-[#333] lg:text-[23px]">
+                    {moment.title}
+                  </p>
+                </div>
+                <p className="mt-[18px] text-[14px] leading-[1.9] text-[#333]/75 lg:text-[15px]">
                   {moment.body}
                 </p>
               </li>
@@ -139,27 +132,22 @@ export function ScienceSchoolBody() {
             </p>
           </div>
 
-          <ol className="mt-[32px] grid gap-[18px] md:grid-cols-2 lg:mt-[44px] lg:gap-[24px]">
+          <ol className="mt-[32px] grid gap-[18px] md:auto-rows-fr md:grid-cols-2 lg:mt-[44px] lg:gap-[22px]">
             {SCIENCE_SCHOOL_DUTIES.map((duty, i) => (
               <li
                 key={duty.no}
-                className="animate-on-scroll flex gap-[18px] rounded-[22px] border border-egg-gray-light bg-white p-[24px] transition-shadow duration-300 hover:shadow-[0px_10px_30px_-12px_rgba(0,0,0,0.25)] lg:gap-[22px] lg:p-[30px]"
+                className="animate-on-scroll h-full rounded-[14px] bg-[#fafafa] p-[26px] lg:p-[30px]"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <span
-                  className="mt-[2px] shrink-0 text-[28px] font-bold leading-none lg:text-[34px]"
-                  style={{ color: duty.accent }}
-                >
-                  {duty.no}
-                </span>
-                <div>
-                  <h3 className="text-[18px] font-bold leading-[1.5] text-[#333] lg:text-[21px]">
+                <div className="flex items-start gap-[14px]">
+                  <CardNumber>{duty.no}</CardNumber>
+                  <h3 className="pt-[4px] text-[17px] font-bold leading-[1.55] text-[#333] lg:text-[19px]">
                     {duty.title}
                   </h3>
-                  <p className="mt-[10px] text-[14px] leading-[1.9] text-[#333]/80 lg:text-[15px]">
-                    {duty.body}
-                  </p>
                 </div>
+                <p className="mt-[18px] text-[14px] leading-[1.9] text-[#333]/75 lg:text-[15px]">
+                  {duty.body}
+                </p>
               </li>
             ))}
           </ol>
@@ -277,37 +265,37 @@ export function ScienceSchoolBody() {
             }
           />
 
-          <div className="grid gap-[20px] md:grid-cols-2 lg:gap-[28px]">
+          <div className="grid gap-[18px] md:auto-rows-fr md:grid-cols-2 lg:gap-[22px]">
             {SCIENCE_SCHOOL_PARTNERS.map((partner, i) => (
               <div
                 key={partner.name}
-                className="animate-on-scroll relative overflow-hidden rounded-[24px] bg-[#fafafa] p-[28px] lg:p-[36px]"
+                className="animate-on-scroll h-full rounded-[14px] bg-[#fafafa] p-[28px] lg:p-[34px]"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <span
-                  className="absolute left-0 top-0 h-[6px] w-full"
-                  style={{ backgroundColor: partner.accent }}
-                />
-                <div className="flex h-[38px] items-center">
+                <div className="flex h-[32px] items-center">
                   {partner.name === "GENKI LABO" ? (
-                    <GenkiLaboWordmark className="h-[32px]" />
+                    <GenkiLaboWordmark className="text-[20px] lg:text-[22px]" />
                   ) : (
                     <Image
                       src="/images/logo/hero-egg-logo.png"
                       alt="Hero Egg"
                       width={238}
                       height={69}
-                      className="h-[32px] w-auto"
+                      className="h-[28px] w-auto"
                     />
                   )}
                 </div>
-                <p
-                  className="mt-[20px] text-[18px] font-bold leading-[1.6] lg:text-[21px]"
-                  style={{ color: partner.accent }}
-                >
+                <div className="mt-[20px] flex items-center">
+                  <div
+                    className="h-[3px] w-[30px] rounded-full"
+                    style={{ backgroundColor: partner.accent }}
+                  />
+                  <div className="h-px flex-1 bg-egg-gray-light" />
+                </div>
+                <p className="mt-[18px] text-[18px] font-bold leading-[1.6] text-[#333] lg:text-[20px]">
                   {partner.lead}
                 </p>
-                <p className="mt-[12px] text-[14px] leading-[1.95] text-[#333]/80 lg:text-[15px]">
+                <p className="mt-[12px] text-[14px] leading-[1.95] text-[#333]/75 lg:text-[15px]">
                   {partner.body}
                 </p>
               </div>
@@ -456,7 +444,7 @@ export function ScienceSchoolBody() {
                 className="h-[26px] w-auto sm:h-[30px]"
               />
               <span className="text-[15px] font-bold text-egg-gray">×</span>
-              <GenkiLaboWordmark className="h-[26px] sm:h-[30px]" />
+              <GenkiLaboWordmark className="text-[17px] sm:text-[19px]" />
             </div>
           </div>
         </div>
@@ -477,7 +465,7 @@ function SectionHead({ eyebrow, title }: { eyebrow: string; title: ReactNode }) 
       <p className="text-[12px] font-bold tracking-[0.14em] text-egg-gray sm:text-[13px]">
         {eyebrow.toUpperCase()}
       </p>
-      <h2 className="mt-[6px] text-[26px] font-bold leading-[1.45] text-[#333] sm:text-[34px] lg:text-[40px]">
+      <h2 className="mt-[6px] text-balance text-[26px] font-bold leading-[1.45] text-[#333] sm:text-[34px] lg:text-[40px]">
         {title}
       </h2>
       <div className="mt-[20px] flex items-center">
@@ -485,6 +473,15 @@ function SectionHead({ eyebrow, title }: { eyebrow: string; title: ReactNode }) 
         <div className="h-px flex-1 bg-egg-gray-light" />
       </div>
     </div>
+  );
+}
+
+/** カード左の連番。サイト共通のイタリック体・グループ内1色の見せ方に合わせる。 */
+function CardNumber({ children }: { children: ReactNode }) {
+  return (
+    <span className="shrink-0 font-bold italic leading-none tracking-[0.02em] text-egg-blue text-[32px] lg:text-[38px]">
+      {children}
+    </span>
   );
 }
 

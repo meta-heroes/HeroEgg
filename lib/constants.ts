@@ -575,22 +575,19 @@ export const SCIENCE_SCHOOL_OPEN = true;
 /** 冒頭の世界観ブロック：子どもに起きる「3つの瞬間」 */
 export const SCIENCE_SCHOOL_MOMENTS = [
   {
-    label: "驚き",
-    accent: "#54c2dc",
-    title: "実験を見た瞬間の、驚き。",
-    body: "目の前で起きたことが信じられない。その一瞬が、科学への入り口になります。",
+    no: "01",
+    title: "驚き",
+    body: "目の前で起きたことが信じられない。実験を見たその一瞬が、科学への入り口になります。",
   },
   {
-    label: "喜び",
-    accent: "#f6a04d",
-    title: "自分で試して成功したときの、喜び。",
-    body: "「できた！」という手ごたえが、もう一度やってみたい気持ちを育てます。",
+    no: "02",
+    title: "喜び",
+    body: "自分で試して成功したときの手ごたえが、「もう一度やってみたい」を育てます。",
   },
   {
-    label: "興味",
-    accent: "#52bc9a",
-    title: "「なんで？」から始まる、新しい興味。",
-    body: "問いが生まれた瞬間から、子どもは自分の力で学びはじめます。",
+    no: "03",
+    title: "興味",
+    body: "「なんで？」と問いが生まれた瞬間から、子どもは自分の力で学びはじめます。",
   },
 ] as const;
 
@@ -598,25 +595,21 @@ export const SCIENCE_SCHOOL_MOMENTS = [
 export const SCIENCE_SCHOOL_DUTIES = [
   {
     no: "01",
-    accent: "#54c2dc",
     title: "科学スクールの講師",
     body: "小中学生に向けて、科学の面白さを伝えます。",
   },
   {
     no: "02",
-    accent: "#fed649",
     title: "実験・授業の実施",
     body: "カリキュラムに沿って、実験を交えた授業を行います。",
   },
   {
     no: "03",
-    accent: "#f6a04d",
     title: "授業前後の準備・片付け",
     body: "実験器具や教材の準備、終了後の片付けを行います。",
   },
   {
     no: "04",
-    accent: "#52bc9a",
     title: "オンラインレクチャーへの参加",
     body: "GENKI LABOスタッフによるレクチャーに参加し、授業の進め方や科学の伝え方を学びます。",
   },

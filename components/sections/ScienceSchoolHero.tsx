@@ -30,7 +30,7 @@ export function ScienceSchoolHero() {
             className="h-[30px] w-auto sm:h-[38px]"
           />
           <span className="text-[18px] font-bold text-egg-gray sm:text-[22px]">×</span>
-          <GenkiLaboWordmark className="h-[30px] sm:h-[38px]" />
+          <GenkiLaboWordmark className="text-[19px] sm:text-[24px]" />
         </div>
 
         <div className="mt-[34px] grid items-center gap-[44px] lg:mt-[48px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-[64px]">
